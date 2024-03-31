@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 const createUser = async (firstName, email, password) => {
   const hashedPassword = await bcrypt.hash(password, 10);
-  const [result] = await connection.query(
+  const result = await connection.query(
     'INSERT INTO users (name, email, password, apiCount) VALUES (?, ?, ?, ?)',
     [firstName, email, hashedPassword, 0]
   );
