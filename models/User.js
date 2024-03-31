@@ -11,7 +11,7 @@ const createUser = async (firstName, email, password) => {
   return result.insertId; // This will return the new user's id
 };
 
-const findUserByEmail = async (email) => {
+const findUserByEmail = (email) => {
   try {
     // const rows = await connection.query('SELECT * FROM users WHERE email = ?', [email]);
     // const rows = await connection.query('SELECT * FROM users WHERE email = "testemail"');
