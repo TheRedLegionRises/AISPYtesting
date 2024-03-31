@@ -14,7 +14,17 @@ const pool = mysql.createConnection({
   queueLimit: 0
 });
 
-module.exports = pool;
+const connection = mysql.createConnection({
+  host: '127.0.0.1',
+  user: 'aispy',
+  password: 'COMP4537AISPY',
+  database: 'aispy'
+  // waitForConnections: true,
+  // connectionLimit: 10,
+  // queueLimit: 0
+});
+
+module.exports = connection;
 
 
 // This can be deleted, but it is what our example SQL schema

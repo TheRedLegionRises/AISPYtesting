@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const mysql = require('mysql')
+const connection = require('./config/database')
 
 const app = express()
 
@@ -17,15 +18,15 @@ const corsOptions = {
 /**
  * connecting to database
  */
-const connection = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'aispy',
-    password: 'COMP4537AISPY',
-    database: 'aispy'
-    // waitForConnections: true,
-    // connectionLimit: 10,
-    // queueLimit: 0
-  });
+// const connection = mysql.createConnection({
+//     host: '127.0.0.1',
+//     user: 'aispy',
+//     password: 'COMP4537AISPY',
+//     database: 'aispy'
+//     // waitForConnections: true,
+//     // connectionLimit: 10,
+//     // queueLimit: 0
+//   });
 // Connect to MySQL
 connection.connect(err => {
     if (err) {
