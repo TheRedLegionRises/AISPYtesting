@@ -13,6 +13,27 @@ const corsOptions = {
     credentials: true
 }
 
+/**
+ * connecting to database
+ */
+const connection = mysql.createConnection({
+    host: '127.0.0.1',
+    user: 'aispy',
+    password: 'COMP4537AISPY',
+    database: 'aispy'
+    // waitForConnections: true,
+    // connectionLimit: 10,
+    // queueLimit: 0
+  });
+// Connect to MySQL
+connection.connect(err => {
+    if (err) {
+      console.error('Error connecting to the database:', err);
+      return;
+    }
+    console.log('Database connection established');
+  });
+
 app.use(cors(corsOptions))
 
 const indexRoutes = require('./routes/indexRoutes')

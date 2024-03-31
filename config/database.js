@@ -4,7 +4,7 @@ const mysql = require('mysql2/promise');
 /**
  * Changed for testing on digitalocean
  */
-const pool = mysql.createPool({
+const pool = mysql.createConnection({
   host: '127.0.0.1',
   user: 'aispy',
   password: 'COMP4537AISPY',
