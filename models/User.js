@@ -45,9 +45,9 @@ const incrementApiCallCount = async (userId) => {
 };
 
 //Verifies password i think
-const checkPassword = async (password, hash) => {
-  const result = await bcrypt.compare(password, hash);
-  return result
+const checkPassword = (password, hash) => {
+  const result = bcrypt.compare(password, hash);
+  return result;
 }
 
 module.exports = {
