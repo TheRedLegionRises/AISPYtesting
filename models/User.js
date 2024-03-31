@@ -12,8 +12,13 @@ const createUser = async (firstName, email, password) => {
 };
 
 const findUserByEmail = async (email) => {
-  const [rows] = await connection.query('SELECT * FROM users WHERE email = ?', [email]);
-  return rows[0]; // This will return the user or undefined if not found
+  try {
+    const [rows] = await connection.query('SELECT * FROM users WHERE email = ?', [email]);
+    return rows ? rows[0] : undefined; // Check if rows is truthy before accessing its first element
+  } catch (error) {
+    console.error('Error finding user by email:', error);
+    return undefined; // Return undefined or handle the error appropriately
+  }
 };
 
 const incrementApiCallCount = async (userId) => {
