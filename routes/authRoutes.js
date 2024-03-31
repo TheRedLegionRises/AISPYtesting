@@ -64,10 +64,10 @@ router.post('/login', async (req, res) => {
                     maxAge: 3600000
                 })
                 res.status(200).send("Hi");
-            } else {
-                console.log("User doesn't exist");
-                res.status(400).send('Incorrect email or password');
             }
+        }else {
+            console.log("User doesn't exist");
+            res.status(400).send('Incorrect email or password');
         }
         
     } catch (error) {
