@@ -13,10 +13,25 @@ const createUser = async (firstName, email, password) => {
 
 const findUserByEmail = async (email) => {
   try {
-    const rows = await connection.query('SELECT * FROM users WHERE email = ?', [email]);
+    // const rows = await connection.query('SELECT * FROM users WHERE email = ?', [email]);
     // const rows = await connection.query('SELECT * FROM users WHERE email = "testemail"');
-    console.log(rows);
-    return rows[0]; // If rows is empty, rows[0] will be undefined, which is perfectly fine
+
+    await connection.query('SELECT * FROM users WHERE email = ?', [email], (err, results) => {
+      if (err) {
+        console.error('Error executing query:', err);
+        // res.writeHead(500, { 'Content-Type': 'application/json' });
+        // res.statusCode = 500;
+        // res.end(JSON.stringify({ error: 'Error executing query' }));
+        return undefined;
+      }
+      // res.writeHead(200, { 'Content-Type': 'application/json' });
+      // res.statusCode = 200;
+      // res.end(JSON.stringify(results));
+      return results;
+    });
+
+    // console.log(rows);
+    // return rows[0]; // If rows is empty, rows[0] will be undefined, which is perfectly fine
   } catch (error) {
     console.error('Error finding user by email:', error);
     return undefined; // Return undefined or handle the error appropriately
