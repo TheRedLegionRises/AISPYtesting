@@ -29,7 +29,7 @@ const findUserByEmail = async (email) => {
       // res.end(JSON.stringify(results));
       let parsedResults = JSON.parse(JSON.stringify(results));
       console.log(parsedResults[0].name);
-      return results;
+      return parsedResults[0];
     });
 
     // console.log(rows);
