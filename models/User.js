@@ -28,7 +28,7 @@ const findUserByEmail = async (email) => {
       // res.statusCode = 200;
       // res.end(JSON.stringify(results));
       let parsedResults = JSON.parse(JSON.stringify(results));
-      console.log(parsedResults[0]);
+      console.log(parsedResults[0].name);
       return results;
     });
 
