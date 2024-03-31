@@ -16,7 +16,7 @@ const findUserByEmail = async (email) => {
     // const rows = await connection.query('SELECT * FROM users WHERE email = ?', [email]);
     // const rows = await connection.query('SELECT * FROM users WHERE email = "testemail"');
 
-    await connection.query('SELECT * FROM users WHERE email = ?', [email], (err, results) => {
+    connection.query('SELECT * FROM users WHERE email = ?', [email], (err, results) => {
       if (err) {
         console.error('Error executing query:', err);
         // res.writeHead(500, { 'Content-Type': 'application/json' });
@@ -29,7 +29,7 @@ const findUserByEmail = async (email) => {
       // res.end(JSON.stringify(results));
       let parsedResults = JSON.parse(JSON.stringify(results));
       console.log(results[0].name);
-      return parsedResults[0];
+      return results[0];
     });
 
     // console.log(rows);
