@@ -11,7 +11,7 @@ const createUser = async (firstName, email, password) => {
   return result.insertId; // This will return the new user's id
 };
 
-const findUserByEmail = (email) => {
+const findUserByEmail = async (email) => {
   try {
     // const rows = await connection.query('SELECT * FROM users WHERE email = ?', [email]);
     // const rows = await connection.query('SELECT * FROM users WHERE email = "testemail"');
@@ -45,8 +45,8 @@ const incrementApiCallCount = async (userId) => {
 };
 
 //Verifies password i think
-const checkPassword = (password, hash) => {
-  const result = bcrypt.compare(password, hash);
+const checkPassword = async (password, hash) => {
+  const result = await bcrypt.compare(password, hash);
   return result;
 }
 
