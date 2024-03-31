@@ -28,13 +28,13 @@ const corsOptions = {
 //     // queueLimit: 0
 //   });
 // Connect to MySQL
-connection.connect(err => {
-    if (err) {
-      console.error('Error connecting to the database:', err);
-      return;
-    }
-    console.log('Database connection established');
-  });
+// connection.connect(err => {
+//     if (err) {
+//       console.error('Error connecting to the database:', err);
+//       return;
+//     }
+//     console.log('Database connection established');
+//   });
 
 app.use(cors(corsOptions))
 

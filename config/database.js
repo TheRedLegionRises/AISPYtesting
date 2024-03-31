@@ -24,6 +24,14 @@ const connection = mysql.createConnection({
   // queueLimit: 0
 });
 
+connection.connect(err => {
+  if (err) {
+    console.error('Error connecting to the database:', err);
+    return;
+  }
+  console.log('Database connection established');
+});
+
 module.exports = connection;
 
 
