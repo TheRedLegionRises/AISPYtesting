@@ -13,7 +13,7 @@ const createUser = async (firstName, email, password) => {
 
 const findUserByEmail = async (email) => {
   try {
-    const [rows] = await connection.query('SELECT * FROM users WHERE email = ?', [email]);
+    const rows = await connection.query('SELECT * FROM users WHERE email = ?', [email]);
     return rows[0]; // If rows is empty, rows[0] will be undefined, which is perfectly fine
   } catch (error) {
     console.error('Error finding user by email:', error);
