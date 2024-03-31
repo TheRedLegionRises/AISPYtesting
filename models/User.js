@@ -27,6 +27,7 @@ const findUserByEmail = async (email) => {
       // res.writeHead(200, { 'Content-Type': 'application/json' });
       // res.statusCode = 200;
       // res.end(JSON.stringify(results));
+      console.log(results);
       return results;
     });
 
