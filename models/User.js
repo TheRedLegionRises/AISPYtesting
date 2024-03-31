@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 const createUser = async (firstName, email, password) => {
   const hashedPassword = await bcrypt.hash(password, 10);
   const [result] = await connection.query(
-    'INSERT INTO users (firstName, email, password, apiCallsCount) VALUES (?, ?, ?, ?)',
+    'INSERT INTO users (name, email, password, apiCount) VALUES (?, ?, ?, ?)',
     [firstName, email, hashedPassword, 0]
   );
   return result.insertId; // This will return the new user's id
@@ -14,7 +14,7 @@ const createUser = async (firstName, email, password) => {
 const findUserByEmail = async (email) => {
   try {
     const [rows] = await connection.query('SELECT * FROM users WHERE email = ?', [email]);
-    return rows ? rows[0] : undefined; // Check if rows is truthy before accessing its first element
+    return rows[0]; // If rows is empty, rows[0] will be undefined, which is perfectly fine
   } catch (error) {
     console.error('Error finding user by email:', error);
     return undefined; // Return undefined or handle the error appropriately
