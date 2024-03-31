@@ -1,6 +1,6 @@
 // Database for the 
-const mysql = require('mysql2/promise');
-
+// const mysql = require('mysql2/promise');
+const mysql = require('mysql')
 /**
  * Changed for testing on digitalocean
  */
