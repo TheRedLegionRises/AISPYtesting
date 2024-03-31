@@ -35,7 +35,7 @@ router.post('/register', async (req, res) => {
  * Testing httpOnly cookie implementation
  */
 
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
     
     console.log(req.body);
     const {email, password} = req.body;
@@ -47,7 +47,7 @@ router.post('/login', (req, res) => {
  */
 
     try {
-        const userExists = findUserByEmail(email);
+        const userExists = await findUserByEmail(email);
         console.log("line 51: "+ userExists);
         if (userExists) {
             console.log("User exists");
