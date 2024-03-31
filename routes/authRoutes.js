@@ -52,6 +52,7 @@ router.post('/login', (req, res) => {
         if (userExists) {
             console.log("User exists");
             //Check if password matches stored password
+            console.log("user pword: " + userExists.password);
             if (checkPassword( password, userExists.password)){
                 const user = {
                     username: email,
