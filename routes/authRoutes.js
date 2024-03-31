@@ -48,6 +48,7 @@ router.post('/login', async (req, res) => {
 
     try {
         const userExists = await findUserByEmail(email);
+        console.log(userExists);
         if (userExists) {
             console.log("User exists");
             //Check if password matches stored password
